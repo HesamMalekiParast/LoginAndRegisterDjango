@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<header class="w-full bg-white shadow-md py-4">
+    <div class="container mx-auto flex justify-between items-center px-6">
+        <h1 class="text-2xl font-bold text-gray-800">My Website</h1>
 
-</body>
-</html>
+        <nav>
+            <ul class="flex space-x-4">
+                <li><a href="{% url 'home' %}" class="text-gray-600 hover:text-gray-900">Home</a></li>
+                <li><a href="{% url 'about' %}" class="text-gray-600 hover:text-gray-900">About</a></li>
+                <li><a href="{% url 'contact' %}" class="text-gray-600 hover:text-gray-900">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="space-x-4">
+            {% if user.is_authenticated %}
+                <span class="text-gray-600">Hello, {{ user.username }}</span>
+                <a href="{% url 'logout' %}" class="px-4 py-2 text-white bg-red-600 rounded-lg hover:bg-red-700">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Login</a>
+                <a href="{% url 'register' %}" class="px-4 py-2 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white">Register</a>
+            {% endif %}
+        </div>
+    </div>
+</header>

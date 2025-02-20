@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="flex items-center justify-center min-h-screen bg-gray-100">
-    <div class="w-full max-w-4xl p-6 text-center bg-white shadow-lg rounded-2xl">
-        <h1 class="text-4xl font-bold text-gray-800">Welcome to Our Website</h1>
-        <p class="mt-4 text-gray-600">Join us and explore amazing features.</p>
+{% extends 'base.html' %}
 
-        <div class="mt-6 space-x-4">
-            <a href="{% url 'login' %}" class="px-6 py-3 text-white bg-blue-600 rounded-lg hover:bg-blue-700">Login</a>
-            <a href="{% url 'register' %}" class="px-6 py-3 text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white">Register</a>
-        </div>
-    </div>
-</body>
-</html>
+{% block title %}Home - My Django Project{% endblock %}
+
+{% block content %}
+<div class="w-full max-w-4xl p-6 text-center bg-white shadow-lg rounded-2xl">
+    <h1 class="text-4xl font-bold text-gray-800">Welcome to Our Website</h1>
+    <p class="mt-4 text-gray-600">Join us and explore amazing features.</p>
+</div>
+{% endblock %}

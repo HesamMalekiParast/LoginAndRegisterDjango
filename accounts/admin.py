@@ -5,20 +5,21 @@ from accounts.models import CustomUser, CashierUser, ClientUser
 
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
-    list_display = ("email", "is_superuser", "is_staff", "is_active")
-    list_filter = ("is_superuser", "is_staff", "is_active")
+    list_display = ("email", "is_superuser", "is_active")
+    list_filter = ("is_superuser", "is_active")
     search_fields = ("email",)
     ordering = ("email",)
 
     fieldsets = (
         (None, {"fields": ("email", "password")}),
-        ("Permissions", {"fields": ("is_superuser", "is_staff", "is_active", "groups", "user_permissions")}),
+        ("Permissions", {"fields": ("is_superuser", "is_active", "groups", "user_permissions")}),
     )
 
     add_fieldsets = (
         (None, {
             "classes": ("wide",),
-            "fields": ("email", "password1", "password2", "is_staff", "is_superuser", "is_active", "groups", "user_permissions"),
+            "fields": (
+            "email", "password1", "password2", "is_staff", "is_superuser", "is_active", "groups", "user_permissions"),
         }),
     )
 
@@ -40,7 +41,8 @@ class CashierUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             "classes": ("wide",),
-            "fields": ("email", "password1", "password2", "is_staff", "is_superuser", "is_active", "groups", "user_permissions"),
+            "fields": (
+            "email", "password1", "password2", "is_staff", "is_superuser", "is_active", "groups", "user_permissions"),
         }),
     )
 
@@ -50,19 +52,19 @@ class CashierUserAdmin(UserAdmin):
 
 class ClientUserAdmin(UserAdmin):
     model = ClientUser
-    list_display = ("email", "is_staff", "is_superuser")
+    list_display = ("email", "is_superuser")
     search_fields = ("email",)
     ordering = ("email",)
 
     fieldsets = (
         (None, {"fields": ("email", "password")}),
-        ("Permissions", {"fields": ("is_superuser", "is_staff", "is_active", "groups", "user_permissions")}),
+        ("Permissions", {"fields": ("is_superuser", "is_active", "groups", "user_permissions")}),
     )
 
     add_fieldsets = (
         (None, {
             "classes": ("wide",),
-            "fields": ("email", "password1", "password2", "is_staff", "is_superuser", "is_active", "groups", "user_permissions"),
+            "fields": ("email", "password1", "password2", "is_superuser", "is_active", "groups", "user_permissions"),
         }),
     )
 
